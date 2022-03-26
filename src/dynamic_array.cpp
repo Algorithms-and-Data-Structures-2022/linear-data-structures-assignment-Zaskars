@@ -88,27 +88,44 @@ namespace assignment {
   }
 
   std::optional<int> DynamicArray::Remove(int index) {
-    // Write your code here ...
+    if (index >= 0 and index < size_) {
+      int answer = data_[index];
+
+      for (int i = index; i < size_; i++) {
+        data_[i] = data_[i + 1];
+        size_ -= 1;
+        return answer;
+      }
+    }
     return std::nullopt;
   }
 
   void DynamicArray::Clear() {
-    // Write your code here ...
+    size_ = 0;
   }
 
   std::optional<int> DynamicArray::Get(int index) const {
-    if (index <= size_ && index >= 0) {
-        return data_[index];
-      }
+    if (index >= 0 and index < size_) {
+      return data_[index];
+    }
     return std::nullopt;
   }
 
   std::optional<int> DynamicArray::IndexOf(int value) const {
-    // Write your code here ...
+    for (int i = 0; i < size_; i++) {
+      if (data_[i] == value) {
+        return i;
+      }
+    }
     return std::nullopt;
   }
 
   bool DynamicArray::Contains(int value) const {
+    for (int i = 0; i < size_; i++) {
+      if (data_[i] == value) {
+        return true;
+      }
+    }
     return false;
   }
 
