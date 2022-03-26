@@ -13,16 +13,15 @@ namespace assignment {
     }
 
     capacity_ = capacity;
-    data_ = new int[capacity];
-    for (int i = 0; i <= capacity; i++) {
-      data_[i] = 0;
+
+    data_ = new int[capacity_]{};
     }
-  }
 
   DynamicArray::~DynamicArray() {
     size_ = 0;
     capacity_ = 0;
     delete[] data_;
+    data_ = nullptr;
   }
 
   void DynamicArray::Add(int value){
