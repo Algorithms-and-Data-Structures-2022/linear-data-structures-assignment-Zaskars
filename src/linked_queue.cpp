@@ -51,7 +51,7 @@ namespace assignment {
   }
 
   bool LinkedQueue::IsEmpty() const {
-    return size_ != 0;
+    return front_ == nullptr;
   }
 
   int LinkedQueue::size() const {
